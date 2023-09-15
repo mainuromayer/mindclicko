@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="owl.theme.default.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="owl.carousel.min.js"></script>
+  <style>
+    .container {
+        width: 80%;
+        max-width: 0 auto;
+    }
+    .owl-carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .owl-carousel .item {
+      margin: 5px;
+      height: 100px;
+      background: #4DC7A0;
+      color: #FFF;
+      text-align: center;
+      line-height: 100px;
+      font-size: 20px;
+    }
+    .owl-carousel .owl-nav button.owl-prev,
+    .owl-carousel .owl-nav button.owl-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #000;
+      font-size: 24px;
+      outline: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .owl-carousel .owl-nav button.owl-prev {
+      left: 10px;
+    }
+    .owl-carousel .owl-nav button.owl-next {
+      right: 10px;
+    }
+    .owl-carousel .owl-nav button.owl-prev:hover,
+    .owl-carousel .owl-nav button.owl-next:hover {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="owl-carousel">
+        <div class="container">
+            <div class="item">Content 1</div>
+            <div class="item">Content 2</div>
+            <div class="item">Content 3</div>
+            <div class="item">Content 4</div>
+            <div class="item">Content 5</div>
+            <div class="item">Content 6</div>
+            <div class="item">Content 7</div>
+            <div class="item">Content 8</div>
+            <div class="item">Content 9</div>
+            <div class="item">Content 10</div>
+          </div>
+    </div>
+
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        responsive: {
+          0:{
+            items:1
+          },
+          481:{
+            items:2
+          },
+          769:{
+            items:3
+          },
+          1025:{
+            items:4
+          },
+          1201:{
+            items:4
+          }
+        },
+        nav: true,
+        navText: ['<span class="owl-prev">&lt;</span>', '<span class="owl-next">&gt;</span>']
+      });
+    });
+  </script>
+</body>
+</html>

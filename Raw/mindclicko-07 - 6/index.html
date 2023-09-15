@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <title>User Panel</title>
+    <style>
+      .sidebar {
+        width: 250px;
+      }
+      a {
+        color: #184ca1;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .nav a {
+        color: black;
+      }
+      .form-container {
+        padding: 20px;
+      }
+
+      /* ul {
+        list-style: none;
+      }
+
+      .decor {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid #262262;
+        background: #fff;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        left: -18px;
+        top: 7px;
+        transition: all .5s ease;
+      }
+      .decor:hover {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border-color: #262262;
+        background: #262262;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        left: -18px;
+        top: 7px;
+      }
+
+      .decor::before {
+        content: '';
+        position: absolute;
+        top: 23px;
+        left: 10px;
+        width: 2px;
+        height: 9px;
+        background: #707070;
+        z-index: -1;
+      } */
+
+      /* end only demo styles */
+
+      .checkbox-custom {
+          opacity: 0;
+          position: absolute;   
+      }
+
+      .checkbox-custom, .checkbox-custom-label {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 3px;
+        cursor: pointer;
+      }
+
+      .checkbox-custom-label {
+          position: relative;
+      }
+
+      .checkbox-custom + .checkbox-custom-label::before {
+        content: '';
+        background: #fff;
+        border: 2px solid #262262;
+        display: inline-block;
+        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        padding: 2px;
+        margin-right: 10px;
+        text-align: center;
+        border-radius: 50%;
+        transition: all .5s ease;
+      }
+
+      .checkbox-custom:checked + .checkbox-custom-label::before {
+        background: #262262;
+        border: none;
+        border-radius: 50%;
+        transition: all .5s ease;
+      }
+
+
+      .checkbox-custom:focus + .checkbox-custom-label {
+        outline: 1px solid #fff; /* focus style */
+      }
+
+      
+      
+
+      .sidebar_image span {
+        height: 55px;
+        width: 55px;
+        background-image: url(./assets/images/circle-image/image-1.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        border-radius: 50%;
+      }
+      /* large Device */
+      @media (min-width: 768px) {
+        .nav-item a i {
+          display: none;
+        }
+        .nav-item span {
+          display: inline-block;
+        }
+      }
+
+      /* Medium Device */
+      @media (max-width: 767px) {
+        .sidebar_image span {
+          width: unset;
+        }
+        .sidebar_image_content {
+          text-align: center
+        }
+        .nav-item {
+          margin-left: 12px;
+        }
+        .nav-item span {
+          display: none;
+        }
+      }
+
+      /* Tablet Device */
+      @media (max-width: 576px)  {
+        .sidebar_image span {
+          width: unset;
+        }
+        .sidebar_image_content {
+          text-align: center
+        }
+        .nav-item span {
+          display: none;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- ==================== TOP BAR START =========================== -->
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    <!-- ===================== TOP BAR END ============================ -->
+    <!-- =================== TOP NAV BAR START ======================== -->
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-sm-3">
+                  <div class="topbar_title">
+                    <span class="d-md-inline-block mr-2 orange-yellow"
+                      >welcome to</span
+                    >
+                    <span class="tarkish-blue">mindclicko</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-9">
+                  <div
+                    class="float-md-right float-sm-none text-right justify-self-center"
+                  >
+                    <span class="mx-md-2 d-inline-block"></span>
+                    <a href="#" class="">
+                      <span class="icon-phone2 d-md-none ms-2"></span>
+                      <span class="d-none d-md-inline-block"
+                        >Help line 01615262407</span
+                      >
+                    </a>
+
+                    <span class="mx-md-2 d-inline-block"></span>
+                    <a href="#" class="">
+                      <span class="icon-shopping_cart d-md-none ms-2"></span>
+                      <span class="d-none d-md-inline-block"
+                        >Track my Order</span
+                      >
+                    </a>
+
+                    <span class="mx-md-2 d-inline-block"></span>
+                    <div class="dropdown d-inline">
+                      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="tarkish-blue">
+                          <img
+                            width="16px"
+                            class="ms-2"
+                            src="./assets/images/en.svg"
+                            alt=""
+                          /></a>
+                          <span class="d-none d-md-inline-block">Country</span>
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Bangladesh</a>
+                        <a class="dropdown-item" href="#">US</a>
+                        <a class="dropdown-item" href="#">UK</a>
+                      </div>
+
+
+                  </button>
+                      
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- =================== TOP NAV BAR END ========================== -->
+    <!-- ==================== HEADER START ============================ -->
+    <header
+      class="site-navbar js-sticky-header site-navbar-target position-relative"
+      role="banner"
+    >
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row align-items-center position-relative">
+            <div class="site-logo">
+              <a href="index.html"
+                ><img
+                  width="100px"
+                  src="./assets/images/logo v2.0.png"
+                  alt="logo"
+              /></a>
+            </div>
+
+            <div class="col-12">
+              <nav class="site-navigation text-right ml-auto" role="navigation">
+                <ul
+                  class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block"
+                >
+                  <li><a href="/" class="nav-link">Home</a></li>
+                  <li>
+                    <a href="{% url 'about_us' %}" class="nav-link">About</a>
+                  </li>
+                  <li><a href="#service" class="nav-link">Service</a></li>
+                  <li><a href="#team" class="nav-link">Team</a></li>
+                  <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                  <li><a href="{% url 'blog' %}" class="nav-link">Blog</a></li>
+                  <li>
+                    <a href="{% url 'contact_us' %}" class="nav-link"
+                      >Contact Us</a
+                    >
+                  </li>
+                  <li>
+                    <div class="btn rounded-custom px-4 pt-2 pb-0 d-flex" style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.37) !important;">
+                      <p style="font-size: 16px;display: inline-block;padding: 8px 15px 0 0;" class="">Emtiaz Hossain</p>
+                      <span style="
+                      display: inline-block;
+                      height: 43px;
+                      width: 43px;
+                      background-image: url(./assets/images/circle-image/image-1.png);
+                      background-repeat: no-repeat;
+                      background-position: center center;
+                      background-size: contain;
+                      border-radius: 50%;
+                    "></span>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="toggle-button d-inline-block d-lg-none">
+              <a
+                href="#"
+                class="site-menu-toggle js-menu-toggle text-black text-decoration-none"
+              >
+                <span class="icon-menu h3"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ===================== HEADER END ============================ -->
+
+    <section
+      style="background-image: linear-gradient(to right, #262262, #184ca1)">
+      <div class="container">
+        <div class="row p-5 justify-content-sm-center">
+          <!-- Sidebar Start -->
+          <div class="col-sm-12 col-md-3 sidebar py-3">
+            <div class="" style="background: #fff; border-radius: 15px">
+              <div class="row px-3 py-4">
+                <div class="col-lg-4 col-md-12 sidebar_image">
+                  <span class="form-inline" for=""></span>
+                </div>
+                <div class="col-lg-8 col-md-12 sidebar_image_content">
+                  <p class="m-0">Hello</p>
+                  <h5 class="m-0" style="font-size: 16px;font-weight: 600;padding-top: 3px;">Emtiaz Hossain</h5>
+                </div>
+              </div>
+              <ul class="nav flex-md-column flex-sm-row py-2 overflow-hidden" style="border-top: 3px solid #707070">
+                <!-- My Account -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070; border-right: none; border-left: none; border-bottom: none;">
+                  <a class="nav-link active" href="#">
+                    <i class="fas fa-user"></i>
+                    <span class="d-sm-none d-md-inline">My Account</span>
+                  </a>
+                </li>
+
+                <!-- Shoping Cart -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070; border-right: none;border-left: none; border-bottom: none;">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="d-sm-none d-md-inline">My Orders</span>
+                  </a>
+                </li>
+                <!-- Downloads -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070;border-right: none;border-left: none;border-bottom: none;">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-download"></i>
+                    <span class="d-sm-none d-md-inline">Downloads</span>
+                  </a>
+                </li>
+                <!-- Conversations -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070;border-right: none;border-left: none;border-bottom: none;">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-comments"></i>
+                    <span class="d-sm-none d-md-inline">Conversations</span>
+                  </a>
+                </li>
+                <!-- Voucher -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070;border-right: none;border-left: none;border-bottom: none;">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-gift"></i>
+                    <span class="d-sm-none d-md-inline">Voucher</span>
+                  </a>
+                </li>
+                <!-- Logout -->
+                <li class="nav-item py-2 pl-2" style="border: 1px dashed #707070;border-right: none;border-left: none;border-bottom: none;">
+                  <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="d-sm-none d-md-inline">Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Sidebar Start -->
+
+          <!-- Middle Content Start -->
+          <div class="col-sm-12 col-md-12 col-lg-6 py-3">
+            <div class="" style="background: #F8F8F8; border-radius: 15px">
+
+              <div class="" style="background-color: #E0E7F4;border-top-left-radius: 15px;border-top-right-radius: 15px;">
+                <button type="button" disabled="" style="background-color: #CAD8F0; border-radius: 15px;font-size: 14px;font-weight: 600;color: #000000;" class="btn px-4 py-3">ACTIVITY</button>
+              </div>
+
+              <!-- content: 2 Start -->
+              <div class="container-fluid rounded-custom mt-5 px-4 pt-4 pb-1" style="background-color: #fff;">
+                <h4 style="font-size: 16px;font-weight: 600;">Your order is now in the works</h4>
+                <p style="font-size: 12px;">We will notify you when its ready for delivery.<br>
+                  You should receive your delivery by May 28, 05:10 PM</p>
+              </div>
+              <!-- content: 2 End -->
+
+              <!-- content: 3 Start -->
+              <div class="py-3">
+                <button type="button" disabled="" style="background-color: #CAD8F0; border-radius: 15px;font-size: 13px;font-weight: 600;color: #000000;" class="btn px-4 px-3">Today</button>
+              </div>
+              <!-- content: 3 End -->
+
+
+              <!-- 
+                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+                pl-5 pr-3 py-2 mb-2
+                background-color: #fff;font-size: 12px;font-weight: 600;
+               -->
+
+              <!-- content: 4 Start -->
+              <div class="form-container">
+                <div class="bg-white d-flex">
+                  <p style="font-size: 12px;font-weight: 600;">You are placed the order</p>
+                  <span class="d-inline-block" style="font-size: 12px;font-weight: 400;">May 25, 05:10 PM</span>
+                </div>
+              </div>
+              <!-- content: 4 End -->
+
+              <!-- content: 5 Start -->
+              <div style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;">
+                <div class="row">
+                  <div class="col-lg-8 pl-5 pr-4 py-2 mb-2">
+                    <p style="background-color: #fff;font-size: 12px;font-weight: 600;">You submitted requirements <span>May 25, 05:15 PM</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-4 pl-5 pr-4 py-2 mb-2">
+                  <a href="" class="d-inline-block col-lg-4">View requirements</a>
+                </div>
+              </div>
+              <!-- content: 5 End -->
+
+              <!-- content: 6 Start -->
+              <div class="" style="box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;">
+                <p class="pl-5 pr-3 py-2 mb-2" style="background-color: #fff;font-size: 12px;font-weight: 600;">The order started May 25, 05:20 PM</p>
+              </div>
+              <!-- content: 6 End -->
+
+              <!-- content: 7 Start -->
+              <div class="d-flex">
+                <div class="pl-5 pr-2 py-2">
+                  <span class="form-inline" for="" style="height: 43px;
+                  width: 43px;
+                  background-image: url(./assets/images/circle-image/image-1.png);
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: contain;
+                  border-radius: 50%;">
+                  </span>
+                </div>
+                <div class="py-3 pl-2 pr-4">
+                  <h5 style="font-size: 14px;font-weight: 600;">Me May 25, 05:20 PM</h5>
+                  <p style="font-size: 12px;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                </div>
+              </div>
+              <!-- content: 7 End -->
+
+              <!-- content: 8 Start -->
+              <div class="d-flex" style="background-color: #fff;">
+                <div class="pl-5 pr-2 py-2">
+                  <span class="form-inline" for="" style="height: 43px;
+                  width: 43px;
+                  background-image: url(./assets/images/circle-image/image-1.png);
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: contain;
+                  border-radius: 50%;">
+                  </span>
+                </div>
+                <div class="py-3 pl-2 pr-3">
+                  <a href="" class="d-inline-block" style="font-size: 14px;font-weight: 600;">Have somethings to share </a>
+                </div>
+              </div>
+              <!-- content: 8 End -->
+
+              <!-- content: 9 Start -->
+              <div style="background-color: #fff;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;" class="pl-5 pr-4 pt-2 pb-5">
+                <div class="">
+                  <textarea name="" id="" style="width: 100%; resize: none; border-radius: 15px; border: 1px solid #707070; padding: 10px 10px 60px 60px; overflow:hidden" placeholder="Type Your Message....."></textarea>
+
+                  <div class="position-relative">
+                    <button type="submit" style="background-color: #262262;border: none;color: #fff;padding: 6px 12px;border-radius: 15px;font-size: 14px;font-weight: 600;position: absolute;top: -35px;left: 358px;">SEND</button>
+                  </div>
+                </div>
+              </div>
+              <!-- content: 9 End -->
+            </div>
+          </div>
+          <!-- Middle Content End -->
+
+          <!-- Right Content Start -->
+          <div class="col-sm-12 col-md-12 col-lg-3 py-3">
+            <div class="form-container pb-4" style="background: #fff; border-radius: 15px">
+            <p class="m-0" style="font-size: 12px; font-weight: 600;">Order No : #MC112121221</p>
+
+            <div class="container-fluid pt-2">
+              <p style="font-size: 12px;font-weight: 600;color: #707070;">Track Order</p>
+            <!-- <ul class="">
+              <li><input type="radio" value="1" class="decor"></input><span>Order Placed</span></li>
+              <li><input type="radio" value="1" class="decor"></span><span>Order In Progress</span></li>
+              <li><input type="radio" value="1" class="decor"></span><span>Review Delivery</span></li>
+              <li><input type="radio" value="1" class="decor"></span><span>Complete Order</span></li>
+            </ul> -->
+
+            <div class="container">
+
+              <div class="docer" style="border-left: 2px solid #707070;">
+                <div style="margin-left: -16px;height: 40px;margin-top: 0px;">
+                  <input id="checkbox-1" class="checkbox-custom docor" name="checkbox-1" type="checkbox" checked>
+                  <label for="checkbox-1" class="checkbox-custom-label" style="font-size: 12px;">Order Placed</label>
+                </div>
+                <div style="margin-left: -16px;height: 40px;">
+                  <input id="checkbox-2" class="checkbox-custom docor" name="checkbox-2" type="checkbox">
+                  <label for="checkbox-2" class="checkbox-custom-label" style="font-size: 12px;">Order In Progress</label>
+                </div>
+                <div style="margin-left: -16px;height: 40px;">
+                  <input id="checkbox-3" class="checkbox-custom docor" name="checkbox-3" type="checkbox">
+                  <label for="checkbox-3" class="checkbox-custom-label" style="font-size: 12px;">Review Delivery</label>
+                </div>
+                <div style="margin-left: -16px;height: 24px;margin-top: 0;">
+                  <input id="checkbox-4" class="checkbox-custom docor" name="checkbox-4" type="checkbox">
+                  <label for="checkbox-4" class="checkbox-custom-label" style="font-size: 12px;">Complete Order</label>    
+                </div>
+              </div>
+            
+            </div>
+
+            </div>
+          </div>
+          <!-- Right Content End -->
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- <script src="./assets/js/bootstrap.min.js"></script> -->
+    <!-- <script src="./assets/js/bootstrap.bundle.min.js"></script> -->
+    <!-- <script src="./assets/js/jquery.min.js"></script> -->
+    <!-- <script src="./assets/js/popper.js"></script> -->
+    <!-- <script src="./assets/js/popper-utils.min.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
